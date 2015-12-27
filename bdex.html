@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    	<title>批量脚本制作</title>
+
+    	<style>
+    		textarea{
+    			resize:none;
+    		}
+    	</style>
+    	<link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+    	<!-- Bootstrap -->
+    	<link href="css/bootstrap.min.css" rel="stylesheet"> 
+    	<!-- <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+
+		<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+		<script type="text/javascript" src="jquery.form.js"></script>
+		<script type="text/javascript">
+			function upload_file(){
+				//alert("sss");
+				$("#returnupload").ajaxSubmit(function(message){
+					//alert(message);
+					document.getElementById("txtHint").innerHTML=message;
+				});
+				return false;
+			}
+
+		</script>
+
+
+	</head>
+
+
+	<body>
+		<div class="container-fluid">
+		<h3>123sssssssssss</h3>
+		
+		<form class="form-horizontal" id="returnupload" action="upload_file.php" method="post" name="upload_files" enctype="multipart/form-data">
+
+			<div class="form-group form-group-md">				
+				<label for="commandfirst" class="col-md-2 control-label">命令起始:</label>
+				<div class="col-md-5">
+					<textarea class="form-control" rows="2" id="commandfirst" name="commandfirst" ></textarea>
+				</div>				
+			</div>
+
+			<div class="form-group form-group-md">
+				<label for="commandend" class="col-md-2 control-label">命令结束:</label>
+				<div class="col-md-5">
+					<textarea class="form-control" rows="2" id="commandend" name="commandend"></textarea>
+				</div>
+			</div>
+
+			<div class="form-group form-group-md">
+				<label for="file" class="col-md-2 control-label">File input:</label>
+				<div class="col-md-3">
+					<input type="file" name="myfile" class="form-control" id="file">
+					<span id="helpblock"  class="help-block">Example block-level help text here.</span>
+				</div>					
+			</div>
+
+			<div class="for-group form-group-md">
+				<div class="col-md-offset-2 col-md-10">
+					<input type="button" class="btn btn-default" name="button" value="提交" onclick="upload_file()" >			
+				</div>
+			</div>
+		</form>
+
+		<a href="outputfile.txt" download="outputfile">下载</a>
+		<p>上传文本信息：<span id="txtHint"></span></p>
+
+		<div class="form-group">
+			<label for="commandoutput" class="col-md-2 control-label">命令输出：</label>
+			<div class="col-md-5">
+				<textarea class="form-control" rows="3" id="commandoutput" name="commandoutput"></textarea>
+			</div>
+		</div>
+		
+		</div>
+	</body>
+
+
+</html>

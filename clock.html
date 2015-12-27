@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		body{
+			background:#ffffff;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<canvas id="canvas"></canvas>
+	</div>
+
+
+
+	<!-- 推荐开源CDN来选取需引用的外部JS //-->
+	<script type="text/javascript" src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		function clock(){
+    var now = new Date();
+    var ctx = document.getElementById('canvas').getContext('2d');
+
+    //保存当前状态，利用继续绘制图形的时候，回到初始化状态
+    ctx.save();
+    ctx.clearRect(0,0,150,150);
+    ctx.translate(80,80);//将（0，0）坐标从新映射到（80，80）
+    ctx.scale(0.4,0.4);//将绘制的图形进行x,y轴比例缩放
+    ctx.rotate(-Math.PI/2);//将画笔进行－90度的旋转
+    ctx.lineWidth = 8;
+    ctx.lineCap = "round";//定义划线方式为带圆角效果
+
+    //画12个小时12个小黑杠
+    ctx.save();
+    for (var i=0;i<12;i++){
+        ctx.beginPath();
+        ctx.rotate(Math.PI/6);//因为要画12个并且转一圈，所以每一个平均转30度
+        ctx.moveTo(100,0);//通过moveto和lineto定义长度
+        ctx.lineTo(120,0);
+        ctx.stroke();
+    }
+
+    ctx.restore();//返回之前保存过的路径状态和属性的值
+
+    //画60秒，60个点对应分钟
+    ctx.save();
+    ctx.lineWidth = 5;
+    for (i=0;i<60;i++){//正点时不画
+        if (i%5!=0) {
+            ctx.beginPath();
+            ctx.moveTo(118,0);
+            ctx.lineTo(120,0);
+            ctx.stroke();
+        }
+        ctx.rotate(Math.PI/30);//因为要画60个并且转一圈，所以每一个平均转6度
+    }
+
+    ctx.restore();
+
+    //获取当前具体时间
+    var sec = now.getSeconds();
+    var min = now.getMinutes();
+    var hr  = now.getHours();//获取到的是24小时制的，所以进行相应的处理
+    hr = hr>=12 ? hr-12 : hr;
+
+    ctx.fillStyle = "black";
+
+    //画代表小时的短黑针
+    ctx.save();
+    ctx.rotate( hr*(Math.PI/6) + (Math.PI/360)*min + (Math.PI/21600)*sec );//依据具体小时来进行实际旋转，大家可以自行计算一下，一算就知道了
+    ctx.lineWidth = 14;
+    ctx.beginPath();
+    ctx.moveTo(-20,0);
+    ctx.lineTo(80,0);
+    ctx.stroke();
+
+    ctx.restore();
+
+    //画代表分钟的长黑针
+    ctx.save();
+    ctx.rotate( (Math.PI/30)*min + (Math.PI/1800)*sec );//依据具体分钟来进行实际旋转，大家可以自行计算一下，一算就知道了
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.moveTo(-28,0);
+    ctx.lineTo(112,0);
+    ctx.stroke();
+
+    ctx.restore();
+
+    //画代表秒的长红针
+    ctx.save();
+    ctx.rotate(sec * Math.PI/30);//依据具体秒数来进行实际旋转
+    ctx.strokeStyle = "#D40000";
+    ctx.fillStyle = "#D40000";
+    ctx.lineWidth = 6;
+    ctx.beginPath();
+    ctx.moveTo(-30,0);
+    ctx.lineTo(83,0);
+    ctx.stroke();
+    ctx.beginPath();//实心小圆
+    ctx.arc(0,0,10,0,Math.PI*2,true);
+    ctx.fill();
+    ctx.beginPath();//画空心小圆
+    ctx.arc(95,0,10,0,Math.PI*2,true);
+    ctx.stroke();
+
+
+    ctx.restore();
+
+    //画最外面的蓝色表框
+    ctx.beginPath();
+    ctx.lineWidth = 14;
+    ctx.strokeStyle = '#325FA2';
+    ctx.arc(0,0,142,0,Math.PI*2,true);
+    ctx.stroke();
+
+    ctx.restore();
+
+    window.requestAnimationFrame(clock);//通过调用同clock方法来高知浏览器不断更新画面以达到动起来的效果
+}
+
+window.requestAnimationFrame(clock);
+	</script>
+</body>
+</html>

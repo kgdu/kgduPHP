@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<meta name="description" content>
+		<meta name="author" content>
+		<link rel="icon" href="favicon.ico">
+		<title>Dota2hero</title>
+		<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> --> 
+        <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="heroes/heropedia.css">
+		<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="heroes/heropedia.js"></script>
+        <script type="text/javascript" src="heroes/heropickerdata.js"></script>
+        <script type="text/javascript" src="heroes/heropediadata.js"></script>
+
+	</head>
+
+	<body role="Dota2hero" data-youhui-installed="1">
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+      		<div class="container">
+        		<div class="navbar-header">
+          		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            		<span class="sr-only">Toggle navigation</span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+          		</button>
+          		<a class="navbar-brand" href="#"><img src="logo.png" alt="Brand"></a>
+        		</div>
+        		<div id="navbar" class="navbar-collapse collapse">
+          		<ul class="nav navbar-nav">
+            		<li class="active"><a href="#">Home</a></li>
+            		<li><a href="#test">英雄</a></li>
+            		<li><a href="#about">物品</a></li>
+            		<li><a href="http://www.kgduk.com/wordpress/" target="_blank">博客</a></li>
+            		<li class="dropdown">
+              		<a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">自用工具<span class="caret"></span></a>
+              		<ul class="dropdown-menu">
+                		<li><a href="#">Action</a></li>
+                		<li><a href="#">Another action</a></li>
+                		<li><a href="#">Something else here</a></li>
+                		<li role="separator" class="divider"></li>
+                		<li class="dropdown-header">Nav header</li>
+                		<li><a href="#">Separated link</a></li>
+                		<li><a href="#">One more separated link</a></li>
+              		</ul>
+            		</li>
+          		</ul>
+        		</div><!--/.nav-collapse -->
+      		</div>
+    	</nav>
+		
+		<div class="container-fluid theme-showcase" role="main">
+		
+		</div>
+
+		<video id="myvideo" autoplay loop style="display: none"></video>
+		<div id="herohover" >
+			
+			<!--style="border: 1px solid black"-->
+			
+			<canvas class="heroHoverLargeVideo" style="display:none" id="mycanvas" width="130" height="178"  ></canvas>
+			<div class="heroHoverLargeName" style="display:none" id="heromane">heromane</div>
+        	
+		</div>
+
+		<div id="heroicos">
+			<div class="heroCol" id="heroColLeft">			
+				<div  id="columnHeaderStr" class="columnHeadText" ><div id="columnHeaderTextStr" ><div>力量</div></div></div>
+				<div class="heroIcons"  id="heroIconsLeft" >
+					<a id="link_earthshaker" class="heroPickerIconLink" href="http://www.dota2.com/hero/Earthshaker/" >
+						<div class="heroHoverLarge" ></div>
+						<img id="base_earthshaker" class="heroHoverSmall" src="heroes/selection/npc_dota_hero_earthshaker.png">
+						
+					</a>
+
+					<a id="link_sven" class="heroPickerIconLink" href="http://www.dota2.com/hero/Sven/">
+						 
+						<div class="heroHoverLarge" ></div>
+						<img id=base_sven class=heroHoverSmall src="heroes/selection/npc_dota_hero_sven.png"> 
+					</a>
+					<a id=link_tiny class="heroPickerIconLink" href="http://www.dota2.com/hero/Tiny/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_tiny class=heroHoverSmall src="heroes/selection/npc_dota_hero_tiny.png">
+					</a>
+					<a id=link_kunkka class=heroPickerIconLink href="http://www.dota2.com/hero/Kunkka/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_kunkka class=heroHoverSmall src="heroes/selection/npc_dota_hero_kunkka.png"> 
+					</a>
+					<a id=link_beastmaster class=heroPickerIconLink href="http://www.dota2.com/hero/Beastmaster/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_beastmaster class=heroHoverSmall src="heroes/selection/npc_dota_hero_beastmaster.png"> 
+					</a>
+					<a id=link_dragon_knight class=heroPickerIconLink href="http://www.dota2.com/hero/Dragon_Knight/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_dragon_knight class=heroHoverSmall src="heroes/selection/npc_dota_hero_dragon_knight.png"> 
+					</a>
+					<a id=link_rattletrap class=heroPickerIconLink href="http://www.dota2.com/hero/Clockwerk/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_rattletrap class=heroHoverSmall src="heroes/selection/npc_dota_hero_rattletrap.png"> 
+					</a>
+					<a id=link_omniknight class=heroPickerIconLink href="http://www.dota2.com/hero/Omniknight/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_omniknight class=heroHoverSmall src="heroes/selection/npc_dota_hero_omniknight.png"> 
+					</a>
+					<a id=link_huskar class=heroPickerIconLink href="http://www.dota2.com/hero/Huskar/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_huskar class=heroHoverSmall src="heroes/selection/npc_dota_hero_huskar.png"> </a>
+					<a id=link_alchemist class=heroPickerIconLink href="http://www.dota2.com/hero/Alchemist/">
+						<div class="heroHoverLarge" ></div> 
+						<img id=base_alchemist class=heroHoverSmall src="heroes/selection/npc_dota_hero_alchemist.png"> </a>
+					<a id=link_brewmaster class=heroPickerIconLink href="http://www.dota2.com/hero/Brewmaster/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_brewmaster class=heroHoverSmall src="heroes/selection/npc_dota_hero_brewmaster.png"> </a>
+					<a id=link_treant class=heroPickerIconLink href="http://www.dota2.com/hero/Treant_Protector/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_treant class=heroHoverSmall src="heroes/selection/npc_dota_hero_treant.png"> </a>
+					<a id=link_wisp class=heroPickerIconLink href="http://www.dota2.com/hero/Io/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_wisp class=heroHoverSmall src="heroes/selection/npc_dota_hero_wisp.png"> </a>
+					<a id=link_centaur class=heroPickerIconLink href="http://www.dota2.com/hero/Centaur_Warrunner/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_centaur class=heroHoverSmall src="heroes/selection/npc_dota_hero_centaur.png"> 
+					</a>
+					<a id=link_shredder class=heroPickerIconLink href="http://www.dota2.com/hero/Timbersaw/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_shredder class=heroHoverSmall src="heroes/selection/npc_dota_hero_shredder.png"> 
+					</a>
+					<a id=link_bristleback class=heroPickerIconLink href="http://www.dota2.com/hero/Bristleback/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_bristleback class=heroHoverSmall src="heroes/selection/npc_dota_hero_bristleback.png"> </a>
+					<a id=link_tusk class=heroPickerIconLink href="http://www.dota2.com/hero/Tusk/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_tusk class=heroHoverSmall src="heroes/selection/npc_dota_hero_tusk.png"> </a>
+					<a id=link_elder_titan class=heroPickerIconLink href="http://www.dota2.com/hero/Elder_Titan/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_elder_titan class=heroHoverSmall src="heroes/selection/npc_dota_hero_elder_titan.png"> </a>
+					<a id=link_legion_commander class=heroPickerIconLink href="http://www.dota2.com/hero/Legion_Commander/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_legion_commander class=heroHoverSmall src="heroes/selection/npc_dota_hero_legion_commander.png">
+					</a>
+					<a id=link_earth_spirit class=heroPickerIconLink href="http://www.dota2.com/hero/Earth_Spirit/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_earth_spirit class=heroHoverSmall src="heroes/selection/npc_dota_hero_earth_spirit.png"> </a>
+					<a id=link_phoenix class=heroPickerIconLink href="http://www.dota2.com/hero/Phoenix/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_phoenix class=heroHoverSmall src="heroes/selection/npc_dota_hero_phoenix.png"> 
+					</a>
+					<a id=link_axe class=heroPickerIconLink href="http://www.dota2.com/hero/Axe/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_axe class=heroHoverSmall src="heroes/selection/npc_dota_hero_axe.png"> </a>
+					<a id=link_pudge class=heroPickerIconLink href="http://www.dota2.com/hero/Pudge/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_pudge class=heroHoverSmall src="heroes/selection/npc_dota_hero_pudge.png"> </a>
+					<a id=link_sand_king class=heroPickerIconLink href="http://www.dota2.com/hero/Sand_King/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_sand_king class=heroHoverSmall src="heroes/selection/npc_dota_hero_sand_king.png"> </a>
+					<a id=link_slardar class=heroPickerIconLink href="http://www.dota2.com/hero/Slardar/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_slardar class=heroHoverSmall src="heroes/selection/npc_dota_hero_slardar.png"> </a>
+					<a id=link_tidehunter class=heroPickerIconLink href="http://www.dota2.com/hero/Tidehunter/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_tidehunter class=heroHoverSmall src="heroes/selection/npc_dota_hero_tidehunter.png"> </a>
+					<a id=link_skeleton_king class=heroPickerIconLink href="http://www.dota2.com/hero/Wraith_King/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_skeleton_king class=heroHoverSmall src="heroes/selection/npc_dota_hero_skeleton_king.png"> </a>
+					<a id=link_life_stealer class=heroPickerIconLink href="http://www.dota2.com/hero/Lifestealer/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_life_stealer class=heroHoverSmall src="heroes/selection/npc_dota_hero_life_stealer.png"> </a>
+					<a id=link_night_stalker class=heroPickerIconLink href="http://www.dota2.com/hero/Night_Stalker/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_night_stalker class=heroHoverSmall src="heroes/selection/npc_dota_hero_night_stalker.png"> </a>
+					<a id=link_doom_bringer class=heroPickerIconLink href="http://www.dota2.com/hero/Doom/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_doom_bringer class=heroHoverSmall src="heroes/selection/npc_dota_hero_doom_bringer.png"> </a>
+					<a id=link_spirit_breaker class=heroPickerIconLink href="http://www.dota2.com/hero/Spirit_Breaker/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_spirit_breaker class=heroHoverSmall src="heroes/selection/npc_dota_hero_spirit_breaker.png"></a>
+					<a id=link_lycan class=heroPickerIconLink href="http://www.dota2.com/hero/Lycan/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_lycan class=heroHoverSmall src="heroes/selection/npc_dota_hero_lycan.png"> </a>
+					<a id=link_chaos_knight class=heroPickerIconLink href="http://www.dota2.com/hero/Chaos_Knight/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_chaos_knight class=heroHoverSmall src="heroes/selection/npc_dota_hero_chaos_knight.png"> </a>
+					<a id=link_undying class=heroPickerIconLink href="http://www.dota2.com/hero/Undying/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_undying class=heroHoverSmall src="heroes/selection/npc_dota_hero_undying.png"> 
+					</a>
+					<a id=link_magnataur class=heroPickerIconLink href="http://www.dota2.com/hero/Magnus/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_magnataur class=heroHoverSmall src="heroes/selection/npc_dota_hero_magnataur.png"> </a>
+					<a id=link_abaddon class=heroPickerIconLink href="http://www.dota2.com/hero/Abaddon/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_abaddon class=heroHoverSmall src="heroes/selection/npc_dota_hero_abaddon.png"> </a>
+					<br clear=left>
+				</div>			
+			</div>
+
+			<div class="heroCol" id="heroColMiddle">			
+				<div id="columnHeaderAgi" class="columnHeadText"><div id="columnHeaderTextAgi"><div>敏捷</div></div></div>
+				<div class="heroIcons" id="heroIconsMiddle" >
+					<a id=link_antimage class=heroPickerIconLink href="http://www.dota2.com/hero/Anti-Mage/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_antimage class=heroHoverSmall src="heroes/selection/npc_dota_hero_antimage.png"> 
+					</a>
+					<a id=link_drow_ranger class=heroPickerIconLink href="http://www.dota2.com/hero/Drow_Ranger/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_drow_ranger class=heroHoverSmall src="heroes/selection/npc_dota_hero_drow_ranger.png"> </a>
+					<a id=link_juggernaut class=heroPickerIconLink href="http://www.dota2.com/hero/Juggernaut/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_juggernaut class=heroHoverSmall src="heroes/selection/npc_dota_hero_juggernaut.png"> </a>
+					<a id=link_mirana class=heroPickerIconLink href="http://www.dota2.com/hero/Mirana/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_mirana class=heroHoverSmall src="heroes/selection/npc_dota_hero_mirana.png"> </a>
+					<a id=link_morphling class=heroPickerIconLink href="http://www.dota2.com/hero/Morphling/">
+						<div class="heroHoverLarge" ></div> 
+						<img id=base_morphling class=heroHoverSmall src="heroes/selection/npc_dota_hero_morphling.png"> </a>
+					<a id=link_phantom_lancer class=heroPickerIconLink href="http://www.dota2.com/hero/Phantom_Lancer/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_phantom_lancer class=heroHoverSmall src="heroes/selection/npc_dota_hero_phantom_lancer.png"> </a>
+					<a id=link_vengefulspirit class=heroPickerIconLink href="http://www.dota2.com/hero/Vengeful_Spirit/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_vengefulspirit class=heroHoverSmall src="heroes/selection/npc_dota_hero_vengefulspirit.png"> </a>
+					<a id=link_riki class=heroPickerIconLink href="http://www.dota2.com/hero/Riki/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_riki class=heroHoverSmall src="heroes/selection/npc_dota_hero_riki.png"> </a>
+					<a id=link_sniper class=heroPickerIconLink href="http://www.dota2.com/hero/Sniper/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_sniper class=heroHoverSmall src="heroes/selection/npc_dota_hero_sniper.png"> </a>
+					<a id=link_templar_assassin class=heroPickerIconLink href="http://www.dota2.com/hero/Templar_Assassin/">
+						<div class="heroHoverLarge" ></div> 
+						<img id=base_templar_assassin class=heroHoverSmall src="heroes/selection/npc_dota_hero_templar_assassin.png"> </a>
+					<a id=link_luna class=heroPickerIconLink href="http://www.dota2.com/hero/Luna/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_luna class=heroHoverSmall src="heroes/selection/npc_dota_hero_luna.png"> </a>
+					<a id=link_bounty_hunter class=heroPickerIconLink href="http://www.dota2.com/hero/Bounty_Hunter/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_bounty_hunter class=heroHoverSmall src="heroes/selection/npc_dota_hero_bounty_hunter.png"> </a>
+					<a id=link_ursa class=heroPickerIconLink href="http://www.dota2.com/hero/Ursa/">
+						<div class="heroHoverLarge" ></div> 
+						<img id=base_ursa class=heroHoverSmall src="heroes/selection/npc_dota_hero_ursa.png"> </a>
+					<a id=link_gyrocopter class=heroPickerIconLink href="http://www.dota2.com/hero/Gyrocopter/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_gyrocopter class=heroHoverSmall src="heroes/selection/npc_dota_hero_gyrocopter.png"> </a>
+					<a id=link_lone_druid class=heroPickerIconLink href="http://www.dota2.com/hero/Lone_Druid/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_lone_druid class=heroHoverSmall src="heroes/selection/npc_dota_hero_lone_druid.png"> 
+					</a>
+					<a id=link_naga_siren class=heroPickerIconLink href="http://www.dota2.com/hero/Naga_Siren/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_naga_siren class=heroHoverSmall src="heroes/selection/npc_dota_hero_naga_siren.png"> </a>
+					<a id=link_troll_warlord class=heroPickerIconLink href="http://www.dota2.com/hero/Troll_Warlord/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_troll_warlord class=heroHoverSmall src="heroes/selection/npc_dota_hero_troll_warlord.png"> </a>
+					<a id=link_ember_spirit class=heroPickerIconLink href="http://www.dota2.com/hero/Ember_Spirit/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_ember_spirit class=heroHoverSmall src="heroes/selection/npc_dota_hero_ember_spirit.png"> </a>
+					<a id=link_bloodseeker class=heroPickerIconLink href="http://www.dota2.com/hero/Bloodseeker/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_bloodseeker class=heroHoverSmall src="heroes/selection/npc_dota_hero_bloodseeker.png"> </a>
+					<a id=link_nevermore class=heroPickerIconLink href="http://www.dota2.com/hero/Shadow_Fiend/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_nevermore class=heroHoverSmall src="heroes/selection/npc_dota_hero_nevermore.png"> </a>
+					<a id=link_razor class=heroPickerIconLink href="http://www.dota2.com/hero/Razor/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_razor class=heroHoverSmall src="heroes/selection/npc_dota_hero_razor.png"> </a>
+					<a id=link_venomancer class=heroPickerIconLink href="http://www.dota2.com/hero/Venomancer/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_venomancer class=heroHoverSmall src="heroes/selection/npc_dota_hero_venomancer.png"> </a>
+					<a id=link_faceless_void class=heroPickerIconLink href="http://www.dota2.com/hero/Faceless_Void/">
+						<div class="heroHoverLarge" ></div> 
+						<img id=base_faceless_void class=heroHoverSmall src="heroes/selection/npc_dota_hero_faceless_void.png"> </a>
+					<a id=link_phantom_assassin class=heroPickerIconLink href="http://www.dota2.com/hero/Phantom_Assassin/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_phantom_assassin class=heroHoverSmall src="heroes/selection/npc_dota_hero_phantom_assassin.png"> </a>
+					<a id=link_viper class=heroPickerIconLink href="http://www.dota2.com/hero/Viper/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_viper class=heroHoverSmall src="heroes/selection/npc_dota_hero_viper.png"> </a>
+					<a id=link_clinkz class=heroPickerIconLink href="http://www.dota2.com/hero/Clinkz/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_clinkz class=heroHoverSmall src="heroes/selection/npc_dota_hero_clinkz.png"> </a>
+					<a id=link_broodmother class=heroPickerIconLink href="http://www.dota2.com/hero/Broodmother/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_broodmother class=heroHoverSmall src="heroes/selection/npc_dota_hero_broodmother.png"> </a>
+					<a id=link_weaver class=heroPickerIconLink href="http://www.dota2.com/hero/Weaver/">
+						<div class="heroHoverLarge" ></div> 
+						<img id=base_weaver class=heroHoverSmall src="heroes/selection/npc_dota_hero_weaver.png"> </a>
+					<a id=link_spectre class=heroPickerIconLink href="http://www.dota2.com/hero/Spectre/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_spectre class=heroHoverSmall src="heroes/selection/npc_dota_hero_spectre.png"> 
+					</a>
+					<a id=link_meepo class=heroPickerIconLink href="http://www.dota2.com/hero/Meepo/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_meepo class=heroHoverSmall src="heroes/selection/npc_dota_hero_meepo.png"> </a>
+					<a id=link_nyx_assassin class=heroPickerIconLink href="http://www.dota2.com/hero/Nyx_Assassin/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_nyx_assassin class=heroHoverSmall src="heroes/selection/npc_dota_hero_nyx_assassin.png"> </a>
+					<a id=link_slark class=heroPickerIconLink href="http://www.dota2.com/hero/Slark/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_slark class=heroHoverSmall src="heroes/selection/npc_dota_hero_slark.png"> </a>
+					<a id=link_medusa class=heroPickerIconLink href="http://www.dota2.com/hero/Medusa/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_medusa class=heroHoverSmall src="heroes/selection/npc_dota_hero_medusa.png"> </a>
+					<a id=link_terrorblade class=heroPickerIconLink href="http://www.dota2.com/hero/Terrorblade/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_terrorblade class=heroHoverSmall src="heroes/selection/npc_dota_hero_terrorblade.png">
+					</a>
+					<br clear=left>
+				</div>			
+			</div>
+
+			<div class="heroCol" id="heroColRight">			
+				<div id="columnHeaderInt" class="columnHeadText"><div id="columnHeaderTextInt"><div>智力</div></div></div>
+				<div class="heroIcons" id="heroIconsRight">
+					<a id="link_crystal_maiden" class="heroPickerIconLink" href="http://www.dota2.com/hero/Crystal_Maiden/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_crystal_maiden class=heroHoverSmall src="heroes/selection/npc_dota_hero_crystal_maiden.png"> </a>
+					<a id=link_puck class=heroPickerIconLink href="http://www.dota2.com/hero/Puck/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_puck class=heroHoverSmall src="heroes/selection/npc_dota_hero_puck.png"> </a>
+					<a id=link_storm_spirit class=heroPickerIconLink href="http://www.dota2.com/hero/Storm_Spirit/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_storm_spirit class=heroHoverSmall src="heroes/selection/npc_dota_hero_storm_spirit.png"> </a>
+					<a id=link_windrunner class=heroPickerIconLink href="http://www.dota2.com/hero/Windranger/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_windrunner class=heroHoverSmall src="heroes/selection/npc_dota_hero_windrunner.png"> </a>
+					<a id=link_zuus class=heroPickerIconLink href="http://www.dota2.com/hero/Zeus/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_zuus class=heroHoverSmall src="heroes/selection/npc_dota_hero_zuus.png"> </a>
+					<a id=link_lina class=heroPickerIconLink href="http://www.dota2.com/hero/Lina/">
+						<div class="heroHoverLarge" ></div> 
+						<img id=base_lina class=heroHoverSmall src="heroes/selection/npc_dota_hero_lina.png"> </a>
+					<a id=link_shadow_shaman class=heroPickerIconLink href="http://www.dota2.com/hero/Shadow_Shaman/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_shadow_shaman class=heroHoverSmall src="heroes/selection/npc_dota_hero_shadow_shaman.png"> </a>
+					<a id=link_tinker class=heroPickerIconLink href="http://www.dota2.com/hero/Tinker/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_tinker class=heroHoverSmall src="heroes/selection/npc_dota_hero_tinker.png"> </a>
+					<a id=link_furion class=heroPickerIconLink href="http://www.dota2.com/hero/Natures_Prophet/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_furion class=heroHoverSmall src="heroes/selection/npc_dota_hero_furion.png"> </a>
+					<a id=link_enchantress class=heroPickerIconLink href="http://www.dota2.com/hero/Enchantress/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_enchantress class=heroHoverSmall src="heroes/selection/npc_dota_hero_enchantress.png"> </a>
+					<a id=link_jakiro class=heroPickerIconLink href="http://www.dota2.com/hero/Jakiro/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_jakiro class=heroHoverSmall src="heroes/selection/npc_dota_hero_jakiro.png"> </a>
+					<a id=link_chen class=heroPickerIconLink href="http://www.dota2.com/hero/Chen/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_chen class=heroHoverSmall src="heroes/selection/npc_dota_hero_chen.png"> </a>
+					<a id=link_silencer class=heroPickerIconLink href="http://www.dota2.com/hero/Silencer/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_silencer class=heroHoverSmall src="heroes/selection/npc_dota_hero_silencer.png"> </a>
+					<a id=link_ogre_magi class=heroPickerIconLink href="http://www.dota2.com/hero/Ogre_Magi/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_ogre_magi class=heroHoverSmall src="heroes/selection/npc_dota_hero_ogre_magi.png"> </a>
+					<a id=link_rubick class=heroPickerIconLink href="http://www.dota2.com/hero/Rubick/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_rubick class=heroHoverSmall src="heroes/selection/npc_dota_hero_rubick.png"> </a>
+					<a id=link_disruptor class=heroPickerIconLink href="http://www.dota2.com/hero/Disruptor/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_disruptor class=heroHoverSmall src="heroes/selection/npc_dota_hero_disruptor.png"> </a>
+					<a id=link_keeper_of_the_light class=heroPickerIconLink href="http://www.dota2.com/hero/Keeper_of_the_Light/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_keeper_of_the_light class=heroHoverSmall src="heroes/selection/npc_dota_hero_keeper_of_the_light.png"> </a>
+					<a id=link_skywrath_mage class=heroPickerIconLink href="http://www.dota2.com/hero/Skywrath_Mage/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_skywrath_mage class=heroHoverSmall src="heroes/selection/npc_dota_hero_skywrath_mage.png"> </a>
+					<a id=link_oracle class=heroPickerIconLink href="http://www.dota2.com/hero/Oracle/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_oracle class=heroHoverSmall src="heroes/selection/npc_dota_hero_oracle.png"> </a>
+					<a id=link_techies class=heroPickerIconLink href="http://www.dota2.com/hero/Techies/">
+						<div class="heroHoverLarge" ></div> 
+						<img id=base_techies class=heroHoverSmall src="heroes/selection/npc_dota_hero_techies.png"> 
+					</a>
+					<a id=link_bane class=heroPickerIconLink href="http://www.dota2.com/hero/Bane/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_bane class=heroHoverSmall src="heroes/selection/npc_dota_hero_bane.png"> </a>
+					<a id=link_lich class=heroPickerIconLink href="http://www.dota2.com/hero/Lich/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_lich class=heroHoverSmall src="heroes/selection/npc_dota_hero_lich.png"> </a>
+					<a id=link_lion class=heroPickerIconLink href="http://www.dota2.com/hero/Lion/">
+						<div class="heroHoverLarge" ></div> 
+						<img id=base_lion class=heroHoverSmall src="heroes/selection/npc_dota_hero_lion.png"> </a>
+					<a id=link_witch_doctor class=heroPickerIconLink href="http://www.dota2.com/hero/Witch_Doctor/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_witch_doctor class=heroHoverSmall src="heroes/selection/npc_dota_hero_witch_doctor.png"> </a>
+					<a id=link_enigma class=heroPickerIconLink href="http://www.dota2.com/hero/Enigma/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_enigma class=heroHoverSmall src="heroes/selection/npc_dota_hero_enigma.png"> </a>
+					<a id=link_necrolyte class=heroPickerIconLink href="http://www.dota2.com/hero/Necrophos/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_necrolyte class=heroHoverSmall src="heroes/selection/npc_dota_hero_necrolyte.png"> </a>
+					<a id=link_warlock class=heroPickerIconLink href="http://www.dota2.com/hero/Warlock/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_warlock class=heroHoverSmall src="heroes/selection/npc_dota_hero_warlock.png"> </a>
+					<a id=link_queenofpain class=heroPickerIconLink href="http://www.dota2.com/hero/Queen_of_Pain/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_queenofpain class=heroHoverSmall src="heroes/selection/npc_dota_hero_queenofpain.png"> </a>
+					<a id=link_death_prophet class=heroPickerIconLink href="http://www.dota2.com/hero/Death_Prophet/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_death_prophet class=heroHoverSmall src="heroes/selection/npc_dota_hero_death_prophet.png"> </a>
+					<a id=link_pugna class=heroPickerIconLink href="http://www.dota2.com/hero/Pugna/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_pugna class=heroHoverSmall src="heroes/selection/npc_dota_hero_pugna.png"> </a>
+					<a id=link_dazzle class=heroPickerIconLink href="http://www.dota2.com/hero/Dazzle/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_dazzle class=heroHoverSmall src="heroes/selection/npc_dota_hero_dazzle.png"> </a>
+					<a id=link_leshrac class=heroPickerIconLink href="http://www.dota2.com/hero/Leshrac/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_leshrac class=heroHoverSmall src="heroes/selection/npc_dota_hero_leshrac.png"> 
+					</a>
+					<a id=link_dark_seer class=heroPickerIconLink href="http://www.dota2.com/hero/Dark_Seer/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_dark_seer class=heroHoverSmall src="heroes/selection/npc_dota_hero_dark_seer.png"> </a>
+					<a id=link_batrider class=heroPickerIconLink href="http://www.dota2.com/hero/Batrider/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_batrider class=heroHoverSmall src="heroes/selection/npc_dota_hero_batrider.png"> 
+					</a>
+					<a id=link_ancient_apparition class=heroPickerIconLink href="http://www.dota2.com/hero/Ancient_Apparition/">
+						<div class="heroHoverLarge" ></div> 
+						<img id=base_ancient_apparition class=heroHoverSmall src="heroes/selection/npc_dota_hero_ancient_apparition.png"> </a>
+					<a id=link_invoker class=heroPickerIconLink href="http://www.dota2.com/hero/Invoker/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_invoker class=heroHoverSmall src="heroes/selection/npc_dota_hero_invoker.png"> </a>
+					<a id=link_obsidian_destroyer class=heroPickerIconLink href="http://www.dota2.com/hero/Outworld_Devourer/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_obsidian_destroyer class=heroHoverSmall src="heroes/selection/npc_dota_hero_obsidian_destroyer.png">
+					</a>
+					<a id=link_shadow_demon class=heroPickerIconLink href="http://www.dota2.com/hero/Shadow_Demon/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_shadow_demon class=heroHoverSmall src="heroes/selection/npc_dota_hero_shadow_demon.png"> </a>
+					<a id=link_visage class=heroPickerIconLink href="http://www.dota2.com/hero/Visage/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_visage class=heroHoverSmall src="heroes/selection/npc_dota_hero_visage.png"> </a>
+					<a id=link_winter_wyvern class=heroPickerIconLink href="http://www.dota2.com/hero/Winter_Wyvern/">
+						<div class="heroHoverLarge" ></div>
+						<img id=base_winter_wyvern class=heroHoverSmall src="heroes/selection/npc_dota_hero_winter_wyvern.png"> 
+					</a>
+					<br clear=left>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

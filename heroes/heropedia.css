@@ -1,0 +1,48 @@
+body{
+	background-color:#34434F;
+	padding-top:80px;
+	
+}
+
+textarea{
+	resize:none;
+}
+    		
+.heroHoverSmall {
+	z-index: 1; width: 71px;border: none; position: relative;top: 0; right: 25%;
+
+}
+.heroIcons {
+	text-align: left;
+
+}
+
+.heroPickerIconLink {
+	 overflow: hidden; position: relative; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #000000; PADDING-LEFT: 0px; WIDTH: 50px; PADDING-RIGHT: 0px; display: block; margin-top: 0px;  MARGIN-BOTTOM: 10px; FLOAT: left; HEIGHT: 94px; MARGIN-LEFT: 10px; PADDING-TOP: 0px; 
+}
+
+.heroHoverLarge {
+	z-index: 100; overflow: hidden; position: absolute; background-color: rgba(50,50,50,0); width: 50px; height: 94px;
+}
+
+.heroCol{
+	margin-bottom: 25px; z-index: 1;
+}
+
+.columnHeadText{
+	position: relative; margin-left: 10px;float: left; display: block; width: 40px; margin-bottom: 0px; border-right:2px solid #576475; color:#576475; text-align: center; 
+}
+
+.heroHoverLargeVideo{
+	z-index: 4; position: absolute; height:178px; width:130px;
+}
+.heroHoverLargeName{
+	z-index: 5; height: 20px; width: 130px; position: absolute; margin-top: 158px; background-color: rgba(50,50,50,0.6); text-align: center; color:#FFF;
+}
+
+#herohover{
+	position: absolute;
+}
+.navbar-brand{
+	padding-top: 8.5px;
+}
